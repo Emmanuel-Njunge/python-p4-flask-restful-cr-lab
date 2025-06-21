@@ -1,8 +1,8 @@
-"""added columns
+"""Initial migration with nullable image and price
 
-Revision ID: 25b6284ad2b4
-Revises: 67f5d67aea55
-Create Date: 2025-06-21 20:07:43.796356
+Revision ID: 35843a240a71
+Revises: 
+Create Date: 2025-06-22 00:20:31.760497
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '25b6284ad2b4'
-down_revision = '67f5d67aea55'
+revision = '35843a240a71'
+down_revision = None
 branch_labels = None
 depends_on = None
 
@@ -21,8 +21,8 @@ def upgrade():
     op.create_table('plants',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
-    sa.Column('image', sa.String(), nullable=False),
-    sa.Column('price', sa.Float(), nullable=False),
+    sa.Column('image', sa.String(), nullable=True),
+    sa.Column('price', sa.Float(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
